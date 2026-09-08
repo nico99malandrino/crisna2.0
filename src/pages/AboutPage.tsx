@@ -76,7 +76,7 @@ export function AboutPage() {
                 className="flex h-20 w-20 items-center justify-center bg-brand-navy font-display text-3xl text-white"
                 aria-hidden
               >
-                CR
+                —
               </div>
               <h3 className="mt-6 font-display text-3xl text-ink">
                 {referente.name}

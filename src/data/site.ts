@@ -52,8 +52,8 @@ export const contactInfo: ContactInfo = {
 
 export const agents: Agent[] = [
   {
-    id: 'cristiano-riggio',
-    name: 'Cristiano Riggio',
+    id: 'referente',
+    name: 'Nome e cognome da inserire',
     role: 'Agente immobiliare · Referente CrisNA',
     phone: contactInfo.phone,
     phoneDisplay: contactInfo.phoneDisplay,

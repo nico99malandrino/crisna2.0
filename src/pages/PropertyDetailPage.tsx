@@ -300,7 +300,7 @@ export function PropertyDetailPage() {
                         className="flex h-24 w-20 shrink-0 items-center justify-center bg-brand-navy font-display text-2xl text-white"
                         aria-hidden
                       >
-                        CR
+                        —
                       </div>
                     )}
                     <div>
