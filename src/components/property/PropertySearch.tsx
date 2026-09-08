@@ -76,7 +76,7 @@ export function PropertySearch({ elevated = true }: { elevated?: boolean }) {
           <div className="flex flex-col gap-3 lg:flex-row lg:items-stretch">
             <div className="grid min-w-0 flex-1 gap-3 sm:grid-cols-3">
               <Select
-                className="h-full"
+                className="min-h-[4.5rem]"
                 label="Zona"
                 icon={MapPin}
                 value={form.zona}
@@ -85,7 +85,7 @@ export function PropertySearch({ elevated = true }: { elevated?: boolean }) {
                 groups={zoneGroups}
               />
               <Select
-                className="h-full"
+                className="min-h-[4.5rem]"
                 label="Tipologia"
                 icon={Building2}
                 value={form.tipologia}
@@ -94,7 +94,7 @@ export function PropertySearch({ elevated = true }: { elevated?: boolean }) {
                 options={typeOptions}
               />
               <Select
-                className="h-full"
+                className="min-h-[4.5rem]"
                 label="Prezzo"
                 icon={Banknote}
                 value={form.prezzo}
@@ -105,7 +105,7 @@ export function PropertySearch({ elevated = true }: { elevated?: boolean }) {
             </div>
             <Button
               type="submit"
-              className="h-[4.35rem] shrink-0 px-10 lg:h-auto lg:min-w-[11.5rem]"
+              className="min-h-[4.5rem] shrink-0 px-10 lg:min-w-[10.5rem]"
             >
               <Search className="h-4 w-4" />
               Cerca

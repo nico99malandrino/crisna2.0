@@ -64,11 +64,11 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="flex w-full max-w-xs flex-col gap-3 self-start lg:self-end">
+          <div className="flex w-full flex-col gap-3 sm:max-w-sm lg:ml-auto lg:w-[17.5rem] lg:shrink-0">
             <ButtonLink to="/immobili" variant="champagne" size="lg" className="w-full">
               Esplora gli immobili
             </ButtonLink>
-            <ButtonLink to="/valutazione" variant="ghost" size="lg" className="w-full">
+            <ButtonLink to="/valutazione" variant="ghost" size="lg" className="w-full border-white/55">
               Valuta il tuo immobile
             </ButtonLink>
             <ButtonAnchor
@@ -77,7 +77,7 @@ export function Hero() {
               rel="noreferrer"
               variant="ghost"
               size="lg"
-              className="w-full border-white/50"
+              className="w-full border-[#25D366]/80 text-white hover:border-[#25D366] hover:bg-[#25D366] hover:text-white"
             >
               <WhatsAppIcon className="h-4 w-4" />
               WhatsApp

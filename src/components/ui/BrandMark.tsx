@@ -22,12 +22,12 @@ export function BrandMark({
   as?: 'span' | 'div' | 'p'
 }) {
   const sizes = {
-    sm: { name: 'text-lg', sub: 'text-[9px] tracking-[0.18em]' },
-    md: { name: 'text-xl sm:text-2xl', sub: 'text-[9px] tracking-[0.38em] sm:text-[10px] sm:tracking-[0.42em]' },
-    lg: { name: 'text-3xl sm:text-4xl', sub: 'text-[10px] tracking-[0.4em] sm:text-xs sm:tracking-[0.44em]' },
+    sm: { name: 'text-lg', sub: 'text-[8px] tracking-[0.28em]' },
+    md: { name: 'text-xl sm:text-2xl', sub: 'text-[9px] tracking-[0.3em] sm:text-[10px]' },
+    lg: { name: 'text-3xl sm:text-4xl', sub: 'text-[10px] tracking-[0.32em] sm:text-xs' },
     xl: {
       name: 'text-4xl sm:text-5xl md:text-6xl',
-      sub: 'text-[11px] tracking-[0.42em] sm:text-xs sm:tracking-[0.48em]',
+      sub: 'text-[11px] tracking-[0.34em] sm:text-xs',
     },
   }[size]
 
@@ -38,7 +38,7 @@ export function BrandMark({
         className,
       )}
     >
-      <span className={cn('font-brand font-bold italic', sizes.name)}>
+      <span className={cn('font-brand font-bold italic leading-none', sizes.name)}>
         <span className={light ? 'text-white' : 'text-brand-navy'}>Cris</span>
         <span className="bg-gradient-to-b from-[#ff2a2a] to-brand-red bg-clip-text text-transparent">
           NA
@@ -47,7 +47,7 @@ export function BrandMark({
       {showSubtitle && (
         <span
           className={cn(
-            'mt-2 w-full translate-x-[0.2em] font-sans font-medium uppercase',
+            'mt-2 translate-x-[0.14em] text-center font-sans font-medium uppercase',
             sizes.sub,
             light ? 'text-white/75' : 'text-brand-muted',
           )}

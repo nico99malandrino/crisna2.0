@@ -116,25 +116,16 @@ export function Select({
         onClick={() => setOpen((v) => !v)}
         className={cn(
           'group flex h-full w-full items-center gap-3 border bg-white text-left transition-all duration-300 ease-[var(--ease-out-soft)]',
-          compact ? 'px-3 py-2.5' : 'px-4 py-3.5',
+          compact ? 'px-3 py-2.5' : 'px-5 py-4',
           open
-            ? 'border-brand-navy shadow-[0_12px_32px_-18px_rgba(26,43,74,0.45)]'
-            : 'border-line hover:border-brand-navy/35',
+            ? 'border-brand-navy'
+            : 'border-line hover:border-brand-navy/40',
         )}
       >
-        {Icon && (
-          <span
-            className={cn(
-              'flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors duration-300',
-              open ? 'bg-brand-navy text-white' : 'bg-cream text-brand-navy',
-            )}
-          >
-            <Icon className="h-4 w-4" />
-          </span>
-        )}
         <span className="min-w-0 flex-1">
           {label && (
-            <span className="block text-[10px] font-medium uppercase tracking-[0.18em] text-muted">
+            <span className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted">
+              {Icon && <Icon className="h-3 w-3" />}
               {label}
             </span>
           )}
@@ -142,7 +133,7 @@ export function Select({
             className={cn(
               'block truncate text-sm',
               isPlaceholder ? 'text-muted' : 'text-ink',
-              label && 'mt-0.5 font-medium',
+              label && 'mt-1 font-medium',
             )}
           >
             {display}
@@ -150,7 +141,7 @@ export function Select({
         </span>
         <ChevronDown
           className={cn(
-            'h-4 w-4 shrink-0 text-muted transition-transform duration-300 ease-[var(--ease-out-soft)]',
+            'ml-auto h-4 w-4 shrink-0 text-ink/45 transition-transform duration-300 ease-[var(--ease-out-soft)]',
             open && 'rotate-180 text-brand-navy',
           )}
         />
