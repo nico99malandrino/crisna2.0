@@ -58,7 +58,7 @@ export const agents: Agent[] = [
     phone: contactInfo.phone,
     phoneDisplay: contactInfo.phoneDisplay,
     email: contactInfo.email,
-    bio: 'Referente dell’agenzia e primo interlocutore per ogni incarico: valutazione, promozione, trattativa e assistenza fino al rogito notarile.',
+    bio: 'testo da inserire',
   },
 ]
 

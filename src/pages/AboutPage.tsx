@@ -16,13 +16,13 @@ export function AboutPage() {
       <SEO
         title="Chi siamo"
         path="/chi-siamo"
-        description="CrisNA Immobiliare, agenzia di Roma in Via Carlo Mirabello 19 (Prati): agenti freelance, un solo referente e assistenza completa fino al rogito."
+        description="testo da inserire"
       />
       <div className="bg-cream pt-28 pb-8 lg:pt-32">
         <div className="container-premium">
           <SectionHeading
-            title="Un solo interlocutore, un intero team."
-            subtitle="CrisNA Immobiliare è un'agenzia di agenti immobiliari freelance e professionisti indipendenti che mediano l'acquisto e la vendita di immobili a Roma, in provincia e nel Lazio."
+            title="testo da inserire"
+            subtitle="testo da inserire"
           />
         </div>
       </div>
@@ -37,29 +37,10 @@ export function AboutPage() {
               loading="lazy"
             />
             <div className="space-y-5 text-base leading-relaxed text-anthracite">
-              <p>
-                A differenza degli agenti che operano come dipendenti di
-                un&apos;agenzia, chi lavora con noi è un professionista autonomo:
-                gestisce in prima persona il proprio pacchetto clienti, redige i
-                contratti e segue le pratiche burocratiche connesse alla
-                compravendita.
-              </p>
-              <p>
-                Il vantaggio è concreto. Avrai sempre un solo referente per la
-                vendita del tuo immobile, affiancato da un team di professionisti
-                — tecnici, notai, legali, consulenti mutui — sempre disponibili.
-              </p>
-              <p>
-                Tutti i clienti, senza eccezioni, vengono seguiti in ogni fase
-                della trattativa: dalla valutazione alla promozione, dalla
-                proposta al rogito notarile e oltre.
-              </p>
-              <p>
-                Crediamo che la mediazione immobiliare meriti la credibilità e la
-                professionalità che troppo spesso le vengono negate. È il metodo
-                con cui lavoriamo ogni giorno dalla nostra sede di Prati, in{' '}
-                {contactInfo.address}.
-              </p>
+              <p>testo da inserire</p>
+              <p>testo da inserire</p>
+              <p>testo da inserire</p>
+              <p>testo da inserire</p>
               <ButtonLink to="/contatti" className="mt-4">
                 Parla con noi
               </ButtonLink>
@@ -82,8 +63,8 @@ export function AboutPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="container-premium">
           <SectionHeading
-            title="Il referente"
-            subtitle="Una sola persona segue il tuo immobile dall'incarico alla firma."
+            title="testo da inserire"
+            subtitle="testo da inserire"
           />
           <div className="mt-14 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             <motion.article
@@ -128,11 +109,10 @@ export function AboutPage() {
 
             <div>
               <h3 className="font-display text-2xl text-ink">
-                Il team di professionisti
+                testo da inserire
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Non un organigramma, ma una rete di specialisti indipendenti
-                attivata di volta in volta su ciò che serve alla tua compravendita.
+                testo da inserire
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {services.map((service) => (

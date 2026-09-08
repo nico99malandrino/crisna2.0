@@ -37,20 +37,12 @@ export function AboutPreview() {
           <div>
             <SectionHeading
               eyebrow="Chi siamo"
-              title="Conosciamo il valore di una casa."
-              subtitle="Un&rsquo;agenzia di agenti immobiliari freelance e professionisti indipendenti: un solo interlocutore per te, un intero team alle sue spalle."
+              title="testo da inserire"
+              subtitle="testo da inserire"
             />
             <div className="mt-8 space-y-4 text-sm leading-relaxed text-anthracite sm:text-base">
-              <p>
-                Operiamo a Roma, in provincia e nel Lazio con un metodo semplice:
-                chi prende l&apos;incarico lo segue personalmente, dalla valutazione
-                alla firma, senza passaggi di mano tra uffici e collaboratori.
-              </p>
-              <p>
-                Intorno al referente lavorano tecnici, notai, legali e consulenti
-                mutui di fiducia. Tutti i clienti vengono seguiti in ogni fase della
-                vendita, fino al rogito notarile e oltre.
-              </p>
+              <p>testo da inserire</p>
+              <p>testo da inserire</p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink to="/chi-siamo" variant="primary">

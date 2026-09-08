@@ -7,65 +7,57 @@ export const services: Service[] = [
   {
     id: 'srv-valutazioni',
     slug: 'valutazioni-gratuite',
-    title: 'Valutazioni gratuite',
-    description:
-      'Analisi di mercato sulla zona, confronto con le compravendite recenti e prezzo di partenza realistico. Senza costi e senza impegno.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'calculator',
   },
   {
     id: 'srv-tecnica',
     slug: 'assistenza-tecnica',
-    title: 'Assistenza tecnica',
-    description:
-      'Verifica di planimetrie, conformità catastale e urbanistica, impianti e attestato di prestazione energetica prima di andare sul mercato.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'wrench',
   },
   {
     id: 'srv-notarile',
     slug: 'assistenza-notarile',
-    title: 'Assistenza notarile',
-    description:
-      'Preparazione della documentazione, coordinamento con lo studio notarile e accompagnamento fino alla firma del rogito.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'signature',
   },
   {
     id: 'srv-legale',
     slug: 'assistenza-legale',
-    title: 'Assistenza legale',
-    description:
-      'Supporto di professionisti di fiducia su successioni, provenienze complesse, contratti e controversie condominiali.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'scale',
   },
   {
     id: 'srv-aste',
     slug: 'aste-giudiziarie',
-    title: 'Acquisto in asta giudiziaria',
-    description:
-      'Selezione dei lotti, lettura della perizia, studio dell’offerta e assistenza in tutte le fasi della procedura esecutiva.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'gavel',
   },
   {
     id: 'srv-foto',
     slug: 'servizio-fotografico',
-    title: 'Servizio fotografico professionale',
-    description:
-      'Reportage fotografico curato dell’immobile per presentarlo al meglio su portali, social e materiali di vendita.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'camera',
   },
   {
     id: 'srv-mutui',
     slug: 'consulenze-mutui',
-    title: 'Consulenze mutui',
-    description:
-      'Verifica della fattibilità, confronto tra istituti e affiancamento nella pratica di finanziamento dell’acquirente.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'percent',
   },
   {
     id: 'srv-traslochi',
     slug: 'traslochi',
-    title: 'Traslochi e depositi',
-    description:
-      'Organizzazione del trasloco e soluzioni di deposito temporaneo, per gestire il passaggio di casa senza imprevisti.',
+    title: 'testo da inserire',
+    description: 'testo da inserire',
     icon: 'truck',
   },
 ]

@@ -35,8 +35,8 @@ export function ServicesPreview({ full = false }: { full?: boolean }) {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Servizi"
-            title="Un percorso completo, dalla valutazione al rogito."
-            subtitle="Valutazione gratuita, assistenza tecnica, notarile e legale, fotografia, mutui e trasloco: tutto incluso nell'incarico."
+            title="testo da inserire"
+            subtitle="testo da inserire"
           />
           {!full && (
             <ButtonLink to="/servizi" variant="outline">
