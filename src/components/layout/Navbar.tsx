@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Menu, Phone, X } from 'lucide-react'
 import { contactInfo, immobiliMenu, navLinks } from '@/data/site'
-import { useScrolled, useLockBody } from '@/hooks/useScroll'
+import { useScrolled, useLockBody, useMediaQuery } from '@/hooks/useScroll'
 import { BrandLogoLink } from '@/components/ui/BrandMark'
 import { ButtonLink } from '@/components/ui/Button'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
@@ -17,6 +18,7 @@ export function Navbar() {
   const isHome = pathname === '/'
   const solid = scrolled || !isHome || open
   const immobiliActive = pathname.startsWith('/immobili')
+  const isDesktop = useMediaQuery('(min-width: 1280px)')
   useLockBody(open)
 
   useEffect(() => {
@@ -24,12 +26,32 @@ export function Navbar() {
     setImmobiliOpen(false)
   }, [pathname, search])
 
+  useEffect(() => {
+    if (isDesktop) {
+      setOpen(false)
+      setImmobiliOpen(false)
+    }
+  }, [isDesktop])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+        setImmobiliOpen(false)
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open])
+
   return (
+    <>
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+        'fixed inset-x-0 top-0 z-[100] transition-all duration-500',
         solid
-          ? 'bg-white/95 shadow-sm shadow-ink/5 backdrop-blur-md'
+          ? 'bg-white shadow-sm shadow-ink/5'
           : 'bg-transparent',
       )}
     >
@@ -136,118 +158,147 @@ export function Navbar() {
         </div>
       </div>
 
+    </header>
+    {createPortal(
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-20 z-40 bg-white xl:hidden lg:top-24"
-          >
-            <nav
-              className="container-premium flex h-[calc(100svh-5rem)] flex-col overflow-y-auto py-8 lg:h-[calc(100svh-6rem)]"
-              aria-label="Menu mobile"
+          <div className="fixed inset-x-0 bottom-0 top-20 z-[90] xl:hidden lg:top-24">
+            <motion.button
+              type="button"
+              aria-label="Chiudi menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-ink/60"
+              onClick={() => {
+                setOpen(false)
+                setImmobiliOpen(false)
+              }}
+            />
+            <motion.nav
+              aria-label="Menu"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-y-0 right-0 flex w-[min(100%,22rem)] flex-col bg-white shadow-[-16px_0_40px_-24px_rgba(17,17,17,0.35)]"
             >
-              <div className="flex flex-1 flex-col justify-center gap-1">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.04 * i, duration: 0.35 }}
-                  >
-                    {link.href === '/immobili' ? (
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => setImmobiliOpen((v) => !v)}
-                          aria-expanded={immobiliOpen}
-                          className={cn(
-                            'flex w-full items-center justify-between py-3 font-display text-3xl sm:text-4xl',
-                            immobiliActive ? 'text-ink' : 'text-muted',
-                          )}
-                        >
-                          Immobili
-                          <ChevronDown
-                            className={cn(
-                              'h-6 w-6 transition-transform duration-300',
-                              immobiliOpen && 'rotate-180',
-                            )}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {immobiliOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <div className="mb-4 space-y-1 border-l border-line pl-4">
-                                {immobiliMenu.map((item) => (
-                                  <NavLink
-                                    key={item.href}
-                                    to={item.href}
-                                    onClick={() => setOpen(false)}
-                                    className="block py-2 text-base text-muted transition hover:text-ink"
-                                  >
-                                    {item.label}
-                                  </NavLink>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <NavLink
-                        to={link.href}
-                        onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                          cn(
-                            'block py-3 font-display text-3xl text-ink sm:text-4xl',
-                            isActive ? 'text-ink' : 'text-muted',
-                          )
-                        }
-                      >
-                        {link.label}
-                      </NavLink>
-                    )}
-                  </motion.div>
-                ))}
+              <div className="border-b border-line px-5 py-4">
+                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-brand-navy">
+                  Menu
+                </p>
               </div>
-              <div className="space-y-4 border-t border-line pt-8 pb-10">
+              <div className="min-h-0 flex-1 overflow-y-auto py-2">
+                {navLinks.map((link) =>
+                  link.href === '/immobili' ? (
+                    <div key={link.href} className="border-b border-line/70">
+                      <button
+                        type="button"
+                        onClick={() => setImmobiliOpen((v) => !v)}
+                        aria-expanded={immobiliOpen}
+                        className={cn(
+                          'flex w-full items-center justify-between px-5 py-3.5 text-left text-[13px] font-medium uppercase tracking-[0.14em] transition-colors',
+                          immobiliActive ? 'text-ink' : 'text-anthracite hover:text-ink',
+                        )}
+                      >
+                        Immobili
+                        <ChevronDown
+                          className={cn(
+                            'h-4 w-4 text-muted transition-transform duration-300 ease-[var(--ease-out-soft)]',
+                            immobiliOpen && 'rotate-180 text-ink',
+                          )}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {immobiliOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <div className="space-y-0.5 bg-cream px-3 pb-3 pt-1">
+                              {immobiliMenu.map((item) => (
+                                <NavLink
+                                  key={item.href}
+                                  to={item.href}
+                                  onClick={() => setOpen(false)}
+                                  className={({ isActive }) =>
+                                    cn(
+                                      'flex items-center justify-between px-3 py-2.5 text-sm transition-colors',
+                                      isActive
+                                        ? 'text-brand-navy'
+                                        : 'text-ink hover:text-brand-navy',
+                                    )
+                                  }
+                                >
+                                  <span>{item.label}</span>
+                                  {'hint' in item && item.hint && (
+                                    <span className="text-[10px] uppercase tracking-[0.12em] text-muted">
+                                      {item.hint}
+                                    </span>
+                                  )}
+                                </NavLink>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <NavLink
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setOpen(false)}
+                      className={({ isActive }) =>
+                        cn(
+                          'block border-b border-line/70 px-5 py-3.5 text-[13px] font-medium uppercase tracking-[0.14em] transition-colors',
+                          isActive ? 'text-ink' : 'text-anthracite hover:text-ink',
+                        )
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  ),
+                )}
+              </div>
+              <div className="space-y-3 border-t border-line bg-cream px-5 py-4">
                 <ButtonLink
                   to="/valutazione"
                   className="w-full"
+                  size="sm"
                   onClick={() => setOpen(false)}
                 >
                   Valuta il tuo immobile
                 </ButtonLink>
-                <a
-                  href={contactInfo.social.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2 text-sm text-anthracite"
-                >
-                  <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
-                  WhatsApp
-                </a>
-                <a
-                  href={`tel:${contactInfo.phone}`}
-                  className="flex items-center justify-center gap-2 text-sm text-anthracite"
-                >
-                  <Phone className="h-4 w-4 text-champagne-dark" />
-                  {contactInfo.phoneDisplay}
-                </a>
+                <div className="flex items-center justify-between gap-3">
+                  <a
+                    href={contactInfo.social.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-anthracite transition hover:text-ink"
+                  >
+                    <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                    WhatsApp
+                  </a>
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="inline-flex items-center gap-2 text-sm text-anthracite transition hover:text-ink"
+                  >
+                    <Phone className="h-4 w-4 text-champagne-dark" />
+                    {contactInfo.phoneDisplay}
+                  </a>
+                </div>
               </div>
-            </nav>
-          </motion.div>
+            </motion.nav>
+          </div>
         )}
-      </AnimatePresence>
-    </header>
+      </AnimatePresence>,
+      document.body,
+    )}
+    </>
   )
 }
 
