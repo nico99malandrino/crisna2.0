@@ -60,7 +60,7 @@ export function Hero() {
               Immobili a Roma
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-white/72 sm:text-lg">
-              Vendita. Cura. Riservatezza.
+              Vendita. Professionalità. Sicurezza.
             </p>
           </div>
 

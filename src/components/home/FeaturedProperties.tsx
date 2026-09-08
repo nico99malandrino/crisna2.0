@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { PropertyCard } from '@/components/property/PropertyCard'
@@ -37,22 +36,6 @@ export function FeaturedProperties() {
               <PropertyCard property={property} featuredLayout={i < 2} />
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-line pt-10 sm:flex-row">
-          <p className="text-sm text-muted">
-            Preferisci una ricerca mirata? Esplora il catalogo completo filtrando
-            per zona e budget.
-          </p>
-          <Link
-            to="/immobili"
-            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-ink transition hover:gap-3"
-          >
-            Catalogo immobili
-            <span aria-hidden className="text-champagne-dark">
-              →
-            </span>
-          </Link>
         </div>
       </div>
     </section>

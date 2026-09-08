@@ -88,14 +88,6 @@ export interface PriceRange extends SelectOption {
   max?: number
 }
 
-export interface Testimonial {
-  id: string
-  name: string
-  text: string
-  operation: string
-  rating: number
-}
-
 export interface Service {
   id: string
   title: string

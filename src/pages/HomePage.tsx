@@ -5,7 +5,6 @@ import { VideoBrand } from '@/components/home/VideoBrand'
 import { AboutPreview } from '@/components/home/AboutPreview'
 import { ServicesPreview } from '@/components/home/ServicesPreview'
 import { ValuationCTA } from '@/components/home/ValuationCTA'
-import { Testimonials } from '@/components/home/Testimonials'
 import { ContactCTA } from '@/components/home/ContactCTA'
 import { BlogPreview } from '@/components/home/BlogPreview'
 import { VideoGrid } from '@/components/video/VideoGrid'
@@ -27,7 +26,6 @@ export function HomePage() {
       <VideoBrand />
       <VideoGrid limit={3} />
       <ValuationCTA />
-      <Testimonials />
       <ContactCTA />
       <BlogPreview />
     </>

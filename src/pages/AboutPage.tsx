@@ -4,7 +4,6 @@ import { services } from '@/data/content'
 import { SEO } from '@/components/seo/SEO'
 import { SectionHeading } from '@/components/ui/Badge'
 import { ButtonLink } from '@/components/ui/Button'
-import { Testimonials } from '@/components/home/Testimonials'
 
 const AGENCY_IMAGE = 'https://pwm.im-cdn.it/image/1867759491/xxl.jpg'
 
@@ -131,8 +130,6 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Testimonials />
     </>
   )
 }

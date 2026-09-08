@@ -13,7 +13,7 @@ export const stats: SiteStat[] = [
   { value: `${properties.length}`, label: 'immobili in portafoglio' },
   { value: `${zoneCount}`, label: 'zone tra Roma, provincia e Lazio' },
   { value: '1', label: 'referente dedicato per ogni incarico' },
-  { value: '8', label: 'servizi inclusi nella compravendita' },
+  { value: '7', label: 'servizi inclusi nella compravendita' },
 ]
 
 export const contactInfo: ContactInfo = {

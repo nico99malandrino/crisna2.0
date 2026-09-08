@@ -8,7 +8,6 @@ import {
   Handshake,
   Percent,
   Scale,
-  Truck,
   Wrench,
 } from 'lucide-react'
 import { services } from '@/data/content'
@@ -23,7 +22,6 @@ const icons = {
   gavel: Gavel,
   camera: Camera,
   percent: Percent,
-  truck: Truck,
 } as const
 
 export function ServicesPreview({ full = false }: { full?: boolean }) {

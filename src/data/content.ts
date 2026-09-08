@@ -1,4 +1,4 @@
-import type { BlogPost, Service, Testimonial, VideoItem } from '@/types'
+import type { BlogPost, Service, VideoItem } from '@/types'
 
 /**
  * Servizi dichiarati dall'agenzia sul profilo Immobiliare.it.
@@ -52,51 +52,6 @@ export const services: Service[] = [
     title: 'testo da inserire',
     description: 'testo da inserire',
     icon: 'percent',
-  },
-  {
-    id: 'srv-traslochi',
-    slug: 'traslochi',
-    title: 'testo da inserire',
-    description: 'testo da inserire',
-    icon: 'truck',
-  },
-]
-
-export const testimonials: Testimonial[] = [
-  {
-    id: 't-1',
-    name: 'Giulia M.',
-    text: 'Un unico referente dall’incarico al rogito: sempre raggiungibile e sempre aggiornato su ogni passaggio della vendita.',
-    operation: 'Vendita appartamento · Roma',
-    rating: 5,
-  },
-  {
-    id: 't-2',
-    name: 'Andrea e Laura P.',
-    text: 'Ci hanno seguito nella scelta della zona e nella pratica del mutuo. Visite organizzate bene e nessuna sorpresa in fase di proposta.',
-    operation: 'Acquisto trilocale · Roma',
-    rating: 5,
-  },
-  {
-    id: 't-3',
-    name: 'Roberto F.',
-    text: 'La valutazione è stata onesta e argomentata con i dati della zona, non con un numero buttato lì per prendere l’incarico.',
-    operation: 'Valutazione e vendita',
-    rating: 5,
-  },
-  {
-    id: 't-4',
-    name: 'Sofia R.',
-    text: 'Documenti controllati prima di pubblicare l’annuncio: al momento del rogito era tutto già pronto.',
-    operation: 'Vendita immobile · Provincia di Roma',
-    rating: 5,
-  },
-  {
-    id: 't-5',
-    name: 'Marco T.',
-    text: 'Servizio fotografico e presentazione dell’immobile di livello davvero alto rispetto ad altre agenzie che avevamo contattato.',
-    operation: 'Vendita villa · Lazio',
-    rating: 5,
   },
 ]
 
