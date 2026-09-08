@@ -1,0 +1,24 @@
+{
+  "name": "CrisNA Immobiliare",
+  "short_name": "CrisNA",
+  "description": "Agenzia immobiliare a Roma — immobili in vendita a Roma, in provincia e nel Lazio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1a2b4a",
+  "lang": "it-IT",
+  "icons": [
+    {
+      "src": "/logo-crisna.jpg?v=2",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

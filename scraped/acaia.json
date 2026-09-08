@@ -1,0 +1,116 @@
+{
+  "id": "132086096",
+  "url": "https://www.immobiliare.it/annunci/132086096/",
+  "title": "Trilocale via Acaia 76, San Giovanni, Roma",
+  "contract": "sale",
+  "isNew": true,
+  "price": 349000,
+  "priceFormatted": "€ 349.000",
+  "pricePerSqm": "3.356 €/m²",
+  "typology": "Appartamento",
+  "category": "Residenziale",
+  "caption": "SAN GIOVANNI, ROMA - TRILOCALE VIA ACAIA 76",
+  "description": "In una delle zone più pregiate di Roma, nel cuore del quartiere San Giovanni, proponiamo in vendita un ampio trilocale di 104 mq commerciali, posto al piano terra rialzato di una palazzina signorile in tinta degli anni ’40, di cinque piani complessivi e così composto:\n\nAmpio Ingresso, Soggiorno, disimpegno, 2 Camere da letto, cucina abitabile, Bagno, Ripostiglio.\n\nL’immobile è altresì dotato di comodi armadi a muro, infissi in alluminio e grate di sicurezza. \n\nLa palazzina si presenta in ottimo stato conservativo e l’ingresso dell’edificio è ampio ed accogliente.\n\nL’esposizione doppia SUD/EST rende l’appartamento molto gradevole e luminoso nonostante il piano basso.\n\nOttima anche come uso investimento.\n\n“ALCUNE DELLE IMMAGINI SONO STATE MIGLIORATE CON AI”\n\nL’appartamento si trova, infine, a soli 1,1 km dalla Fermata “Metro A-Re di Roma”, a soli 1,2 km dalla fermata “Metro A-San Giovanni”, a soli 4 minuti dalla “Stazione di Roma Ostiense” (terzo scalo ferroviario della capitale) e la zona è completa di tutti i principali servizi al cittadino.",
+  "surface": "104 m²",
+  "rooms": "3",
+  "bedrooms": "2",
+  "bathrooms": "1",
+  "floor": "Piano rialzato, con ascensore",
+  "elevator": true,
+  "condition": "Da ristrutturare",
+  "buildingYear": 1940,
+  "energyClass": "G",
+  "heating": "centralizzato, a radiatori, alimentato a metano",
+  "location": {
+    "city": "Roma",
+    "macrozone": "Re di Roma, San Giovanni",
+    "microzone": "San Giovanni",
+    "address": "Via Acaia",
+    "streetNumber": "76",
+    "lat": 41.8749,
+    "lng": 12.5069,
+    "province": "Roma"
+  },
+  "features": [
+    "Armadio a muro",
+    "Esposizione esterna",
+    "Fibra ottica",
+    "Infissi esterni in vetro / metallo",
+    "Porta blindata",
+    "cancello elettrico",
+    "impianto tv centralizzato"
+  ],
+  "photos": [
+    {
+      "caption": "Facciata",
+      "large": "https://pwm.im-cdn.it/image/1996490156/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490156/cover-m-c.jpg"
+    },
+    {
+      "caption": "Facciata",
+      "large": "https://pwm.im-cdn.it/image/1996490166/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490166/m-c.jpg"
+    },
+    {
+      "caption": "Facciata",
+      "large": "https://pwm.im-cdn.it/image/1996490170/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490170/m-c.jpg"
+    },
+    {
+      "caption": "Cortile interno",
+      "large": "https://pwm.im-cdn.it/image/1996490176/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490176/m-c.jpg"
+    },
+    {
+      "caption": "Cortile interno",
+      "large": "https://pwm.im-cdn.it/image/1996490186/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490186/m-c.jpg"
+    },
+    {
+      "caption": "Cortile interno",
+      "large": "https://pwm.im-cdn.it/image/1996490192/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490192/m-c.jpg"
+    },
+    {
+      "caption": "Interno palazzo",
+      "large": "https://pwm.im-cdn.it/image/1996490196/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490196/m-c.jpg"
+    },
+    {
+      "caption": "Ingresso",
+      "large": "https://pwm.im-cdn.it/image/1996490204/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490204/m-c.jpg"
+    },
+    {
+      "caption": "Ingresso",
+      "large": "https://pwm.im-cdn.it/image/1996490206/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490206/m-c.jpg"
+    },
+    {
+      "caption": "Ingresso",
+      "large": "https://pwm.im-cdn.it/image/1996490214/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490214/m-c.jpg"
+    },
+    {
+      "caption": "Ingresso",
+      "large": "https://pwm.im-cdn.it/image/1996490224/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490224/m-c.jpg"
+    },
+    {
+      "caption": "Ingresso",
+      "large": "https://pwm.im-cdn.it/image/1996490232/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490232/m-c.jpg"
+    },
+    {
+      "caption": "Soggiorno",
+      "large": "https://pwm.im-cdn.it/image/1996490238/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490238/m-c.jpg"
+    },
+    {
+      "caption": "Soggiorno",
+      "large": "https://pwm.im-cdn.it/image/1996490244/xxl.jpg",
+      "medium": "https://pwm.im-cdn.it/image/1996490244/m-c.jpg"
+    }
+  ],
+  "photoTotal": 53
+}

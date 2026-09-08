@@ -1,0 +1,41 @@
+{
+  "name": "CrisNA Immobiliare",
+  "immobiliareId": 423591,
+  "immobiliareUrl": "https://www.immobiliare.it/agenzie-immobiliari/423591/crisna-immobiliare/",
+  "logoRemote": "https://pic.im-cdn.it/imagenoresize/1465323025.jpg",
+  "address": "Via Carlo Mirabello 19",
+  "postalCode": "00195",
+  "city": "Roma",
+  "province": "RM",
+  "region": "Lazio",
+  "macrozone": "Prati, Borgo, Mazzini, Delle Vittorie, Degli Eroi",
+  "latitude": 41.9168,
+  "longitude": 12.4569,
+  "phones": [
+    { "type": "fisso", "display": "06 8590 2917", "tel": "+390685902917" },
+    { "type": "mobile", "display": "351 341 7915", "tel": "+393513417915" }
+  ],
+  "referente": "Cristiano Riggio",
+  "openingHours": {
+    "lunedi": "09:00 - 19:30",
+    "martedi": "09:00 - 19:30",
+    "mercoledi": "09:00 - 19:30",
+    "giovedi": "09:00 - 19:00",
+    "venerdi": "09:00 - 19:30",
+    "sabato": "09:00 - 13:00",
+    "domenica": "chiuso"
+  },
+  "totalAds": 23,
+  "totalSales": 21,
+  "description": "CrisNA Immobiliare è un'agenzia composta da soli agenti immobiliari \"freelance\" e da un Team di professionisti che, lavorando in modo autonomo, si occupano di mediare l'acquisto, la vendita o la locazione di immobili.\n\nTra i principali servizi offerti a venditori e/o acquirenti:\n- Valutazioni gratuite\n- Assistenza tecnica\n- Assistenza notarile\n- Assistenza legale\n- Assistenza acquisto Aste Giudiziarie\n- Servizio fotografico professionale (ove richiesto)\n- Consulenze mutui\n- Traslochi\n\nA differenza degli agenti immobiliari che operano come dipendenti di un'agenzia immobiliare, chi ha scelto di operare con noi come freelance lavora per conto proprio, occupandosi della gestione della propria attività e del proprio pacchetto clienti nonché di redigere contratti e di gestire le pratiche burocratiche connesse.\n\nIl Vantaggio? Avrete sempre un solo ed unico interlocutore per la vendita del vostro immobile, la collaborazione con un team di professionisti sempre disponibili e tutta una serie di servizi offerti che renderanno la compravendita del vostro immobile piacevole e veloce.\n\nTutti i clienti, senza eccezione alcuna, verranno seguiti in tutte le fasi della vendita sino al rogito notarile ed oltre.\n\nÈ giunto il momento di provare a dare una nuova immagine al settore della mediazione immobiliare che ormai da troppo tempo non gode più di quella credibilità e professionalità che invece pensiamo meriti.\n\nNon resta che metterci alla prova!",
+  "services": [
+    "Valutazioni gratuite",
+    "Assistenza tecnica",
+    "Assistenza notarile",
+    "Assistenza legale",
+    "Assistenza acquisto Aste Giudiziarie",
+    "Servizio fotografico professionale",
+    "Consulenze mutui",
+    "Traslochi"
+  ]
+}
