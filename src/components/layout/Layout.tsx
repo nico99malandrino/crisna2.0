@@ -1,12 +1,7 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-import { ToastViewport } from '@/components/ui/Toast'
-import { BrandLogoImage } from '@/components/ui/BrandMark'
-import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
-import { useScrollProgress } from '@/hooks/useScroll'
-import { contactInfo } from '@/data/site'
+import { BrandMark } from '@/components/ui/BrandMark'
+import { SITE_NAME } from '@/data/site'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -16,68 +11,73 @@ function ScrollToTop() {
   return null
 }
 
-function ScrollProgress() {
-  const progress = useScrollProgress()
-  return (
-    <div
-      className="pointer-events-none fixed left-0 top-0 z-[60] h-[2px] bg-champagne transition-[width] duration-150"
-      style={{ width: `${progress}%` }}
-      aria-hidden
-    />
-  )
-}
-
 function PageLoader() {
   const [show, setShow] = useState(true)
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const t = window.setTimeout(() => setShow(false), reduce ? 0 : 420)
-    return () => window.clearTimeout(t)
+    const timer = window.setTimeout(() => setShow(false), reduce ? 0 : 380)
+    return () => window.clearTimeout(timer)
   }, [])
   if (!show) return null
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-white"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-desk"
       role="status"
       aria-label="Caricamento"
     >
-      <div className="text-center">
-        <BrandLogoImage size="lg" />
-        <div className="mx-auto mt-8 h-px w-16 bg-line">
-          <div className="h-full w-1/2 animate-pulse bg-brand-red" />
-        </div>
-      </div>
+      <BrandMark size="lg" />
     </div>
   )
 }
 
-export function Layout() {
+function SiteFooter() {
   return (
-    <>
+    <footer className="px-5 pb-8 pt-2">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 text-center text-[11px] text-brand-navy/50 sm:flex-row sm:justify-between sm:px-8 sm:text-left">
+        <p>© {new Date().getFullYear()} {SITE_NAME}</p>
+        <nav aria-label="Note legali" className="flex gap-4">
+          <Link to="/privacy" className="hover:text-brand-navy">
+            Privacy
+          </Link>
+          <Link to="/cookie" className="hover:text-brand-navy">
+            Cookie
+          </Link>
+          <Link to="/termini" className="hover:text-brand-navy">
+            Termini
+          </Link>
+        </nav>
+      </div>
+    </footer>
+  )
+}
+
+export function Layout() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+
+  return (
+    <div className="flex min-h-dvh flex-col">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[210] focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[210] focus:bg-card focus:px-4 focus:py-2 focus:text-ink"
       >
         Vai al contenuto
       </a>
       <PageLoader />
-      <ScrollProgress />
       <ScrollToTop />
-      <Navbar />
-      <main id="main-content">
+      {!isHome && (
+        <header className="border-b border-brand-navy/10 bg-desk">
+          <div className="mx-auto flex h-16 max-w-3xl items-center px-5">
+            <Link to="/" aria-label="CrisNA Immobiliare — Home">
+              <BrandMark size="sm" />
+            </Link>
+          </div>
+        </header>
+      )}
+      <main id="main-content" className="flex flex-1 flex-col">
         <Outlet />
       </main>
-      <Footer />
-      <a
-        href={contactInfo.social.whatsapp}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Scrivi su WhatsApp"
-        className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-8px_rgba(37,211,102,0.7)] transition hover:scale-105 hover:bg-[#1ebe5d] sm:bottom-7 sm:right-7"
-      >
-        <WhatsAppIcon className="h-7 w-7" />
-      </a>
-      <ToastViewport />
-    </>
+      <SiteFooter />
+    </div>
   )
 }

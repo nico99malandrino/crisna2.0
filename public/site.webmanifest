@@ -1,11 +1,11 @@
 {
   "name": "CrisNA Immobiliare",
   "short_name": "CrisNA",
-  "description": "Agenzia immobiliare a Roma — immobili in vendita a Roma, in provincia e nel Lazio.",
+  "description": "Agenzia di mediazione immobiliare a Roma, in zona Prati.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#1a2b4a",
+  "background_color": "#e7e1d6",
+  "theme_color": "#e7e1d6",
   "lang": "it-IT",
   "icons": [
     {

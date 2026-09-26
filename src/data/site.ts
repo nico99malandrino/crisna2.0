@@ -1,19 +1,13 @@
 import type { Agent, ContactInfo, PriceRange, SiteStat } from '@/types'
 import { config } from '@/config'
-import { properties } from '@/data/properties'
 
 export const SITE_NAME = 'CrisNA Immobiliare'
 export const SITE_URL = config.siteUrl
 export const SITE_TAGLINE =
-  'Agenzia immobiliare a Roma — compravendite seguite da un solo referente, dall’incarico al rogito e oltre.'
-
-const zoneCount = new Set(properties.map((p) => p.zone)).size
+  'Agenzia di mediazione immobiliare a Roma, in zona Prati.'
 
 export const stats: SiteStat[] = [
-  { value: `${properties.length}`, label: 'immobili in portafoglio' },
-  { value: `${zoneCount}`, label: 'zone tra Roma, provincia e Lazio' },
-  { value: '1', label: 'referente dedicato per ogni incarico' },
-  { value: '7', label: 'servizi inclusi nella compravendita' },
+  { value: '1', label: 'referente per ogni incarico' },
 ]
 
 export const contactInfo: ContactInfo = {
@@ -46,19 +40,19 @@ export const contactInfo: ContactInfo = {
     youtube: 'https://youtube.com/@crisnaimmobiliare',
     whatsapp:
       'https://wa.me/393513417915?text=' +
-      encodeURIComponent('Ciao CrisNA Immobiliare, vorrei informazioni.'),
+      encodeURIComponent('Buongiorno, vorrei informazioni su CrisNA Immobiliare.'),
   },
 }
 
 export const agents: Agent[] = [
   {
     id: 'referente',
-    name: 'Nome e cognome da inserire',
-    role: 'Agente immobiliare · Referente CrisNA',
+    name: 'Cristiano Riggio',
+    role: 'Referente',
     phone: contactInfo.phone,
     phoneDisplay: contactInfo.phoneDisplay,
     email: contactInfo.email,
-    bio: 'testo da inserire',
+    bio: 'Referente di CrisNA Immobiliare, agenzia di mediazione in zona Prati, a Roma.',
   },
 ]
 

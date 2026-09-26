@@ -11,6 +11,8 @@
   --color-champagne: #c4a574;
   --color-champagne-dark: #a88b5a;
   --color-white: #ffffff;
+  --color-desk: #e7e1d6;
+  --color-card: #ffffff;
   --color-brand-navy: #1a2b4a;
   --color-brand-red: #e30613;
   --color-brand-muted: #8a8a8a;
@@ -28,17 +30,17 @@
   }
 
   body {
-    @apply bg-white text-ink font-sans antialiased;
+    @apply bg-desk text-ink font-sans antialiased;
     font-feature-settings: "ss01" on, "cv11" on;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-champagne) 35%, white);
+    background: color-mix(in srgb, var(--color-brand-navy) 16%, white);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-champagne);
+    outline: 2px solid var(--color-brand-navy);
     outline-offset: 3px;
   }
 
@@ -66,5 +68,43 @@
 
   .field {
     @apply w-full border border-line bg-white px-3 py-3 text-sm text-ink outline-none transition placeholder:text-muted/60 focus:border-ink;
+  }
+
+  .card-scene {
+    perspective: 1400px;
+  }
+
+  .card-tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.45s var(--ease-out-soft);
+  }
+
+  .card-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s var(--ease-out-soft);
+  }
+
+  .card-inner[data-flipped='true'] {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(0deg);
+  }
+
+  .card-face-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-tilt,
+  .card-inner {
+    transition: none;
   }
 }

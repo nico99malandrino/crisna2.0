@@ -12,9 +12,9 @@ interface SEOProps {
 
 export function SEO({
   title,
-  description = 'CrisNA Immobiliare: agenzia immobiliare a Roma (Prati). Immobili in vendita a Roma, in provincia e nel Lazio, valutazioni gratuite e assistenza completa fino al rogito.',
+  description = 'CrisNA Immobiliare, agenzia di mediazione a Roma, in zona Prati. Acquisto, vendita e locazione, con un referente fino al rogito.',
   path = '/',
-  image = 'https://pwm.im-cdn.it/image/1867759345/xxl.jpg',
+  image = `${SITE_URL}/logo-crisna.jpg`,
   type = 'website',
   jsonLd,
 }: SEOProps) {
@@ -82,7 +82,7 @@ export const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-crisna.jpg`,
   description:
-    'Agenzia immobiliare a Roma composta da agenti freelance e professionisti indipendenti: vendita, valutazioni gratuite e assistenza fino al rogito.',
+    'Agenzia di mediazione immobiliare a Roma, in zona Prati. Acquisto, vendita e locazione, con un referente fino al rogito.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: contactInfo.address,
