@@ -1,7 +1,7 @@
 {
   "name": "CrisNA Immobiliare",
   "short_name": "CrisNA",
-  "description": "Agenzia di mediazione immobiliare a Roma, in zona Prati.",
+  "description": "Mediazione immobiliare.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#e7e1d6",

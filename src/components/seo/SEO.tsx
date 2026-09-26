@@ -12,7 +12,7 @@ interface SEOProps {
 
 export function SEO({
   title,
-  description = 'CrisNA Immobiliare, agenzia di mediazione a Roma, in zona Prati. Acquisto, vendita e locazione, con un referente fino al rogito.',
+  description = 'CrisNA Immobiliare. Mediazione immobiliare: acquisto, vendita e locazione, con un referente fino al rogito.',
   path = '/',
   image = `${SITE_URL}/logo-crisna.jpg`,
   type = 'website',
@@ -20,7 +20,7 @@ export function SEO({
 }: SEOProps) {
   const fullTitle = title
     ? `${title} | ${SITE_NAME}`
-    : `${SITE_NAME} | Agenzia immobiliare a Roma`
+    : `${SITE_NAME} | Mediazione immobiliare`
   const canonical = `${SITE_URL}${path}`
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-crisna.jpg`,
   description:
-    'Agenzia di mediazione immobiliare a Roma, in zona Prati. Acquisto, vendita e locazione, con un referente fino al rogito.',
+    'Mediazione immobiliare: acquisto, vendita e locazione, con un referente fino al rogito.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: contactInfo.address,

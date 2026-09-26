@@ -199,7 +199,7 @@ export function CallingCard() {
             </a>
             <p className="mt-3 text-ink">
               {contactInfo.address}
-              <span className="block text-muted">00195 Roma · Prati</span>
+              <span className="block text-muted">00195 Roma</span>
             </p>
             <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.18em] text-brand-navy/60">
               Orari
@@ -217,12 +217,12 @@ export function CallingCard() {
             Lo studio
           </p>
           <h2 className="mt-3 max-w-xl font-display text-4xl text-brand-navy">
-            Mediazione immobiliare a Roma
+            Mediazione immobiliare
           </h2>
           <div className="mt-8 max-w-2xl space-y-5 text-[15px] leading-relaxed text-anthracite">
             <p>
-              CrisNA Immobiliare è un’agenzia di mediazione con sede in zona
-              Prati. Si occupa di acquisto, vendita e locazione di immobili.
+              CrisNA Immobiliare si occupa di mediazione immobiliare: acquisto,
+              vendita e locazione di immobili.
             </p>
             <p>
               Gli incarichi sono seguiti da agenti che gestiscono in proprio il

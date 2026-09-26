@@ -3,8 +3,7 @@ import { config } from '@/config'
 
 export const SITE_NAME = 'CrisNA Immobiliare'
 export const SITE_URL = config.siteUrl
-export const SITE_TAGLINE =
-  'Agenzia di mediazione immobiliare a Roma, in zona Prati.'
+export const SITE_TAGLINE = 'Mediazione immobiliare.'
 
 export const stats: SiteStat[] = [
   { value: '1', label: 'referente per ogni incarico' },
@@ -17,7 +16,7 @@ export const contactInfo: ContactInfo = {
   phoneSecondaryDisplay: '06 8590 2917',
   email: 'info@crisnaimmobiliare.it',
   address: 'Via Carlo Mirabello 19',
-  city: '00195 Roma (Prati)',
+  city: '00195 Roma',
   postalCode: '00195',
   hours: 'Lun – Ven 9:00 – 19:30 · Sab 9:00 – 13:00',
   openingHours: [
@@ -52,7 +51,7 @@ export const agents: Agent[] = [
     phone: contactInfo.phone,
     phoneDisplay: contactInfo.phoneDisplay,
     email: contactInfo.email,
-    bio: 'Referente di CrisNA Immobiliare, agenzia di mediazione in zona Prati, a Roma.',
+    bio: 'Referente di CrisNA Immobiliare. Mediazione immobiliare.',
   },
 ]
 

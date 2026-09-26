@@ -7,7 +7,7 @@ export function HomePage() {
       <SEO
         path="/"
         jsonLd={organizationJsonLd}
-        description="CrisNA Immobiliare, agenzia di mediazione a Roma, in zona Prati. Acquisto, vendita e locazione, con un referente fino al rogito. Via Carlo Mirabello 19."
+        description="CrisNA Immobiliare. Mediazione immobiliare: acquisto, vendita e locazione, con un referente fino al rogito."
       />
       <CallingCard />
     </>
