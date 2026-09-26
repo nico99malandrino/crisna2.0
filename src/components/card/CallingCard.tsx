@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { contactInfo, SITE_URL } from '@/data/site'
 import { useScrolled } from '@/hooks/useScroll'
 import { cn } from '@/utils/format'
@@ -55,26 +56,34 @@ function downloadVCard() {
   URL.revokeObjectURL(url)
 }
 
+const actionClass =
+  'rounded-full border border-brand-navy/15 bg-white/70 px-3.5 py-1.5 text-sm text-brand-navy transition duration-300 hover:-translate-y-0.5 hover:border-brand-navy hover:bg-brand-navy hover:text-white'
+
 function ContactActions({ className }: { className?: string }) {
   return (
     <nav
       aria-label="Contatti diretti"
-      className={cn(
-        'flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-brand-navy',
-        className,
-      )}
+      className={cn('flex flex-wrap items-center gap-2.5', className)}
     >
-      <a href={`tel:${contactInfo.phone}`} className="hover:underline">
+      <a
+        href="https://www.immobiliare.it/agenzie-immobiliari/423591/crisna-immobiliare/"
+        target="_blank"
+        rel="noreferrer"
+        className="rounded-full border border-brand-navy bg-brand-navy px-3.5 py-1.5 text-sm text-white transition duration-300 hover:-translate-y-0.5 hover:border-brand-red hover:bg-brand-red"
+      >
+        Vedi gli immobili
+      </a>
+      <a href={`tel:${contactInfo.phone}`} className={actionClass}>
         Chiama
       </a>
-      <a href={`mailto:${contactInfo.email}`} className="hover:underline">
+      <a href={`mailto:${contactInfo.email}`} className={actionClass}>
         Email
       </a>
       <a
         href={contactInfo.social.whatsapp}
         target="_blank"
         rel="noreferrer"
-        className="hover:underline"
+        className={actionClass}
       >
         WhatsApp
       </a>
@@ -82,20 +91,123 @@ function ContactActions({ className }: { className?: string }) {
         href={contactInfo.mapsLinkUrl}
         target="_blank"
         rel="noreferrer"
-        className="hover:underline"
+        className={actionClass}
       >
         Mappa
       </a>
-      <button type="button" onClick={downloadVCard} className="hover:underline">
+      <button type="button" onClick={downloadVCard} className={actionClass}>
         Salva contatto
       </button>
     </nav>
   )
 }
 
+const openingHours = [
+  { label: 'Lunedì – mercoledì, venerdì', time: '9:00 – 19:30', days: [1, 2, 3, 5] },
+  { label: 'Giovedì', time: '9:00 – 19:00', days: [4] },
+  { label: 'Sabato', time: '9:00 – 13:00', days: [6] },
+  { label: 'Domenica', time: 'chiuso', days: [0] },
+] as const
+
+function OpeningHours() {
+  const today = new Date().getDay()
+
+  return (
+    <div className="mx-auto mt-5 max-w-xs text-left">
+      <p className="text-center text-[11px] font-medium uppercase tracking-[0.18em] text-brand-navy/60">
+        Orari
+      </p>
+      <ul className="mt-3 space-y-1.5">
+        {openingHours.map((row) => {
+          const current = (row.days as readonly number[]).includes(today)
+          return (
+            <li
+              key={row.label}
+              className={cn(
+                'flex items-baseline justify-between gap-4 rounded-md px-3 py-1.5 text-sm transition',
+                current ? 'bg-brand-navy text-white' : 'text-anthracite',
+              )}
+            >
+              <span>
+                {row.label}
+                {current && (
+                  <span className="ml-2 text-[10px] font-medium uppercase tracking-[0.14em] text-white/70">
+                    oggi
+                  </span>
+                )}
+              </span>
+              <span className={cn('shrink-0', current ? 'text-white' : 'text-ink')}>
+                {row.time}
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}
+
+function Reveal({
+  children,
+  className,
+  id,
+}: {
+  children: ReactNode
+  className?: string
+  id?: string
+}) {
+  const reduce = useReducedMotion()
+
+  return (
+    <motion.section
+      id={id}
+      className={className}
+      initial={reduce ? false : { opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-12% 0px' }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.section>
+  )
+}
+
+const steps = [
+  {
+    title: 'Incarico',
+    text: 'Si stabilisce se si tratta di acquisto, vendita o locazione. Quando occorre, la valutazione dell’immobile fa parte di questo passaggio.',
+  },
+  {
+    title: 'Verifica',
+    text: 'Prima di procedere si controllano documenti, conformità e aspetti tecnici. Le difformità si affrontano prima della trattativa, non al rogito.',
+  },
+  {
+    title: 'Trattativa',
+    text: 'Proposta, contratto e adempimenti restano seguiti dallo stesso referente. Per il mutuo c’è una consulenza dedicata, se il cliente la chiede.',
+  },
+  {
+    title: 'Rogito',
+    text: 'L’assistenza notarile accompagna l’atto. L’assistenza legale si aggiunge quando la pratica lo richiede. Il referente resta reperibile anche dopo la firma.',
+  },
+] as const
+
 export function CallingCard() {
   const compact = useScrolled(280)
+  const reduceMotion = useReducedMotion()
+  const tiltRef = useRef<HTMLElement>(null)
   const [active, setActive] = useState<(typeof sections)[number]['id']>('studio')
+
+  const resetTilt = () => {
+    if (tiltRef.current) tiltRef.current.style.transform = ''
+  }
+
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (reduceMotion || event.pointerType !== 'mouse' || !tiltRef.current) return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const px = (event.clientX - bounds.left) / bounds.width - 0.5
+    const py = (event.clientY - bounds.top) / bounds.height - 0.5
+    tiltRef.current.style.transform = `rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg)`
+  }
 
   useEffect(() => {
     const nodes = sections
@@ -166,10 +278,21 @@ export function CallingCard() {
         </nav>
       </div>
 
-      <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
-        <header className="border border-brand-navy/10 bg-card px-6 py-10 shadow-[0_28px_60px_-36px_rgba(26,43,74,0.45)] sm:px-10">
+      <div className="mx-auto w-full max-w-3xl px-5 pb-8 sm:px-8">
+        <div
+          className="card-scene"
+          onPointerMove={onPointerMove}
+          onPointerLeave={resetTilt}
+        >
+        <header
+          ref={tiltRef}
+          className="card-tilt border border-brand-navy/10 bg-card px-6 py-10 shadow-[0_28px_60px_-32px_rgba(26,43,74,0.4)] transition-shadow duration-500 hover:shadow-[0_36px_70px_-28px_rgba(26,43,74,0.5)] sm:px-10"
+        >
           <LogoMark />
-          <div className="mx-auto mt-2 h-px w-10 bg-brand-navy" aria-hidden />
+          <div
+            className="mx-auto mt-2 h-0.5 w-14 bg-gradient-to-r from-brand-navy to-brand-red"
+            aria-hidden
+          />
           <p className="mt-8 text-center font-display text-3xl text-brand-navy">
             {REFERENTE}
           </p>
@@ -201,18 +324,13 @@ export function CallingCard() {
               {contactInfo.address}
               <span className="block text-muted">00195 Roma</span>
             </p>
-            <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.18em] text-brand-navy/60">
-              Orari
-            </p>
-            <p className="mt-2">Lunedì – mercoledì, venerdì · 9:00 – 19:30</p>
-            <p>Giovedì · 9:00 – 19:00</p>
-            <p>Sabato · 9:00 – 13:00</p>
-            <p>Domenica · chiuso</p>
           </div>
+          <OpeningHours />
           <ContactActions className="mt-8 justify-center" />
         </header>
+        </div>
 
-        <section id="studio" className="scroll-mt-28 py-16 sm:py-20">
+        <Reveal id="studio" className="scroll-mt-28 py-16 sm:py-20">
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-brand-navy/60">
             Lo studio
           </p>
@@ -236,9 +354,9 @@ export function CallingCard() {
               il fascicolo.
             </p>
           </div>
-        </section>
+        </Reveal>
 
-        <section
+        <Reveal
           id="referente"
           className="scroll-mt-28 border-t border-brand-navy/10 py-16 sm:py-20"
         >
@@ -275,9 +393,9 @@ export function CallingCard() {
               {contactInfo.email}
             </a>
           </div>
-        </section>
+        </Reveal>
 
-        <section
+        <Reveal
           id="pratica"
           className="scroll-mt-28 border-t border-brand-navy/10 py-16 sm:py-20"
         >
@@ -288,44 +406,28 @@ export function CallingCard() {
             Cosa accade, nell’ordine
           </h2>
           <div className="mt-10 max-w-2xl">
-            <div className="border-t border-brand-navy/10 py-6">
-              <h3 className="text-lg text-ink">Incarico</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-anthracite">
-                Si stabilisce se si tratta di acquisto, vendita o locazione.
-                Quando occorre, la valutazione dell’immobile fa parte di questo
-                passaggio.
-              </p>
-            </div>
-            <div className="border-t border-brand-navy/10 py-6">
-              <h3 className="text-lg text-ink">Verifica</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-anthracite">
-                Prima di procedere si controllano documenti, conformità e
-                aspetti tecnici. Le difformità si affrontano prima della
-                trattativa, non al rogito.
-              </p>
-            </div>
-            <div className="border-t border-brand-navy/10 py-6">
-              <h3 className="text-lg text-ink">Trattativa</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-anthracite">
-                Proposta, contratto e adempimenti restano seguiti dallo stesso
-                referente. Per il mutuo c’è una consulenza dedicata, se il
-                cliente la chiede.
-              </p>
-            </div>
-            <div className="border-t border-b border-brand-navy/10 py-6">
-              <h3 className="text-lg text-ink">Rogito</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-anthracite">
-                L’assistenza notarile accompagna l’atto. L’assistenza legale si
-                aggiunge quando la pratica lo richiede. Il referente resta
-                reperibile anche dopo la firma.
-              </p>
-            </div>
+            {steps.map((step, index) => (
+              <article
+                key={step.title}
+                className={cn(
+                  'group -mx-3 rounded-lg border-t border-brand-navy/10 px-3 py-6 transition-colors duration-300 hover:bg-white',
+                  index === steps.length - 1 && 'border-b',
+                )}
+              >
+                <span
+                  className="mb-3 block h-0.5 w-8 bg-brand-navy/25 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-red"
+                  aria-hidden
+                />
+                <h3 className="text-lg text-ink transition-colors duration-300 group-hover:text-brand-navy">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-anthracite">
+                  {step.text}
+                </p>
+              </article>
+            ))}
           </div>
-          <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-anthracite">
-            Se l’acquisto avviene in asta giudiziaria, o se serve un servizio
-            fotografico, lo studio li segue all’interno della stessa pratica.
-          </p>
-        </section>
+        </Reveal>
 
       </div>
     </div>
